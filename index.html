@@ -34,7 +34,7 @@
             overflow: hidden;
         }
 
-        /* --- Typography --- */
+        /* Typography */
         h1 {
             font-size: 4rem;
             font-weight: 800;
@@ -82,19 +82,7 @@
             font-weight: 500;
         }
 
-        /* --- Abstract Box --- */
-        .abstract-box {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid #60a5fa;
-            padding: 20px 28px;
-            border-radius: 8px;
-            margin: 20px 0 28px 0;
-            font-style: italic;
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-
-        /* --- Grid Layouts --- */
+        /* Cards */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -126,7 +114,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* --- Comparison Table --- */
+        /* Table */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -149,7 +137,7 @@
             font-weight: 600;
         }
 
-        /* --- Research Question --- */
+        /* Research Question */
         .question-box {
             background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
             border: 2px solid rgba(96, 165, 250, 0.25);
@@ -163,7 +151,7 @@
             color: #c4b5fd;
         }
 
-        /* --- Video Card (Replaces broken iframes) --- */
+        /* Video Card (Clickable) */
         .video-card {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
@@ -202,19 +190,9 @@
         .video-card .btn-pink:hover {
             background: #f9a8d4;
         }
-        .video-card .btn-gold {
-            background: #fbbf24;
-            color: #0a0a0f;
-        }
-        .video-card .btn-gold:hover {
-            background: #fcd34d;
-        }
 
-        /* ============================================================ */
-        /*                 CUSTOM ANIMATIONS (CSS only)                   */
-        /* ============================================================ */
-
-        /* Animation 1: AJP Process (Particles flowing) */
+        /* ===== ANIMATIONS ===== */
+        /* 1. AJP Process */
         .ajp-animation {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 16px;
@@ -283,7 +261,7 @@
             }
         }
 
-        /* Animation 2: Dispersion (Good vs Bad) */
+        /* 2. Dispersion Grid */
         .dispersion-container {
             display: flex;
             gap: 30px;
@@ -340,7 +318,7 @@
             }
         }
 
-        /* Animation 3: Electric Field Focusing */
+        /* 3. Electric Field */
         .efield-container {
             background: #0f0f1a;
             border-radius: 16px;
@@ -449,7 +427,50 @@
             }
         }
 
-        /* --- Responsive --- */
+        /* Helpers */
+        details {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        details summary {
+            font-weight: 600;
+            color: #60a5fa;
+        }
+        details p {
+            margin-top: 12px;
+            color: #cbd5e1;
+        }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #60a5fa, #f472b6);
+            z-index: 999;
+            transition: width 0.1s;
+            width: 0%;
+        }
+        .scroll-hint {
+            margin-top: 30px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.6rem;
@@ -484,50 +505,6 @@
                 font-size: 1.1rem;
             }
         }
-
-        /* Scroll progress */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #60a5fa, #f472b6);
-            z-index: 999;
-            transition: width 0.1s;
-            width: 0%;
-        }
-        .scroll-hint {
-            margin-top: 30px;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.85rem;
-            animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(8px);
-            }
-        }
-        details {
-            cursor: pointer;
-            margin: 10px 0;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        details summary {
-            font-weight: 600;
-            color: #60a5fa;
-        }
-        details p {
-            margin-top: 12px;
-            color: #cbd5e1;
-        }
     </style>
 </head>
 <body>
@@ -543,7 +520,8 @@
                 <div style="color: #60a5fa; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 12px;">AEROSOL JET PRINTING · 3 PAPERS</div>
                 <h1>From Micro to Nano<br><span class="gradient-text">The Evolution of Aerosol Manufacturing</span></h1>
                 <p style="font-size: 1.3rem; color: #94a3b8; margin-top: 20px; max-width: 650px;">
-                    3 Papers · 3 Strategies · 1 Shared Goal:<br>Higher precision, multi-material, 3D micro/nano-manufacturing.
+                    Wilkinson (2019) · Hwang (2024) · Jung (2019)<br>
+                    Review · Multi-material Composites · 3D Nanoprinting
                 </p>
                 <div style="display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap;">
                     <span style="background: rgba(96,165,250,0.15); padding: 6px 18px; border-radius: 20px; font-size:0.85rem; border:1px solid rgba(96,165,250,0.2);">Paper 1 · Review</span>
@@ -556,103 +534,82 @@
     </section>
 
     <!-- ============================================================
-    SECTION 2: PAPER 1 (REVIEW)
+    SECTION 2: PAPER 1 (REVIEW) - ACADEMIC DETAILS ADDED
     ============================================================ -->
     <section>
         <div class="container">
             <span class="badge">Paper 1 · Review</span>
             <h2>AJP Technology: The Foundation</h2>
-            <p style="font-size:1.1rem; color:#c4c4d0;"><strong>Wilkinson et al. (2019)</strong> · <em>A review of aerosol jet printing for micro-manufacturing</em></p>
+            <p style="font-size:1.1rem; color:#c4c4d0;"><strong>Wilkinson et al. (2019)</strong> · <em>Int J Adv Manuf Technol</em></p>
 
-            <!-- ABSTRACT -->
             <details>
                 <summary>📄 Read the Abstract</summary>
-                <p><em>"Aerosol Jet Printing (AJP) is an emerging contactless direct write approach aimed at the production of fine features on a wide range of substrates. Originally developed for the manufacture of electronic circuitry, the technology has been explored for a range of applications, including active and passive electronic components, actuators, sensors, as well as a variety of selective chemical and biological responses. Freeform deposition, coupled with a relatively large stand-off distance, is enabling researchers to produce devices with increased geometric complexity. Wide material compatibility, high resolution and independence of orientation have provided novelty... This overview will summarise the underlying principles, review applications and discuss hurdles to widespread industry adoption."</em></p>
+                <p><em>"Aerosol Jet Printing (AJP) is an emerging contactless direct write approach aimed at the production of fine features on a wide range of substrates. Originally developed for the manufacture of electronic circuitry... Freeform deposition, coupled with a relatively large stand-off distance, is enabling researchers to produce devices with increased geometric complexity. Wide material compatibility, high resolution and independence of orientation have provided novelty... This overview will summarise the underlying principles, review applications and discuss hurdles to widespread industry adoption."</em></p>
             </details>
 
-            <!-- ANIMATION: AJP Process -->
+            <!-- ANIMATION -->
             <div class="ajp-animation">
-                <div class="ajp-stage">
-                    <span class="icon">💧</span>
-                    <span>Atomizer</span>
-                </div>
-                <div class="ajp-tube">
-                    <div class="particle-flow"></div>
-                    <div class="particle-flow"></div>
-                    <div class="particle-flow"></div>
-                </div>
-                <div class="ajp-stage">
-                    <span class="icon">🎯</span>
-                    <span>Focusing (Sheath)</span>
-                </div>
-                <div class="ajp-tube">
-                    <div class="particle-flow" style="animation-duration:2s;"></div>
-                    <div class="particle-flow" style="animation-duration:2.5s; animation-delay:0.6s;"></div>
-                </div>
-                <div class="ajp-stage">
-                    <span class="icon">⬇️</span>
-                    <span>Nozzle</span>
-                </div>
-                <div class="ajp-tube" style="flex:0.5;">
-                    <div class="particle-flow" style="animation-duration:1.5s; background:#fbbf24;"></div>
-                </div>
-                <div class="ajp-stage">
-                    <span class="icon">🧪</span>
-                    <span>Substrate</span>
-                </div>
+                <div class="ajp-stage"><span class="icon">💧</span><span>Atomizer</span></div>
+                <div class="ajp-tube"><div class="particle-flow"></div><div class="particle-flow"></div><div class="particle-flow"></div></div>
+                <div class="ajp-stage"><span class="icon">🎯</span><span>Focusing</span></div>
+                <div class="ajp-tube"><div class="particle-flow" style="animation-duration:2s;"></div><div class="particle-flow" style="animation-duration:2.5s; animation-delay:0.6s;"></div></div>
+                <div class="ajp-stage"><span class="icon">⬇️</span><span>Nozzle</span></div>
+                <div class="ajp-tube" style="flex:0.5;"><div class="particle-flow" style="animation-duration:1.5s; background:#fbbf24;"></div></div>
+                <div class="ajp-stage"><span class="icon">🧪</span><span>Substrate</span></div>
             </div>
-            <p style="text-align:center; font-size:0.8rem; color:#64748b;">Animation: Atomization → Transport → Focusing → Deposition</p>
 
-            <!-- Key Details -->
             <div class="grid-3">
                 <div class="card">
-                    <div class="tag">⚙️ Mechanism</div>
-                    <h4>Two Atomization Methods</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;"><strong>Ultrasonic</strong> (1-10 cP) for low viscosity. <strong>Pneumatic</strong> (1-1000 cP) for high viscosity. Droplets are focused via a sheath gas and deposited with a <span class="text-highlight">1-5 mm stand-off</span>.</p>
+                    <div class="tag">⚙️ Atomization</div>
+                    <h4>Viscosity Ranges</h4>
+                    <p style="color:#94a3b8; font-size:0.9rem;"><strong>Ultrasonic:</strong> 1–10 cP (monodisperse). <strong>Pneumatic:</strong> 1–1000 cP (polydisperse, requires virtual impactor). <span class="text-highlight">Stand-off:</span> 1–5 mm enables conformal printing on 3D surfaces (e.g., golf balls).</p>
                 </div>
                 <div class="card">
                     <div class="tag">📦 Materials</div>
-                    <h4>Extremely Wide Compatibility</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">Silver nanoparticle inks, ceramics (Barium Titanate), polymers (SU-8), and even <span class="text-highlight">biological matter</span> like proteins and DNA strands.</p>
+                    <h4>Silver Inks to DNA</h4>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Ag nanoparticle inks (resistance ~2× bulk silver), ceramics (BaTiO₃), SU-8 photoresist, and <span class="text-highlight">biological matter</span> (proteins, DNA). Material compatibility is a key novelty.</p>
                 </div>
                 <div class="card">
-                    <div class="tag">⚠️ Challenges</div>
-                    <h4>Overspray & Ink Formulation</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;"><span class="text-highlight">Overspray</span> (satellite droplets) ruins edge definition. Ink formulation requires extensive empirical work, lacking a universal "Z-number" like inkjet printing.</p>
+                    <div class="tag">⚠️ Key Challenges</div>
+                    <h4>Overspray & Formulation</h4>
+                    <p style="color:#94a3b8; font-size:0.9rem;"><span class="text-highlight">Overspray</span> from satellite droplets degrades line quality. No universal "Z-number" exists for ink formulation—unlike inkjet printing—leading to extensive empirical optimisation.</p>
                 </div>
             </div>
 
-            <!-- Key Data Point -->
+            <!-- Specific Data Points -->
             <div style="background:rgba(255,255,255,0.02); padding:16px 24px; border-radius:12px; border-left:3px solid #60a5fa; margin-top:10px;">
-                <p style="color:#cbd5e1;">📊 <strong>Key Data:</strong> Finest reported conductive lines: <span class="text-highlight">10 µm</span> (Cai et al.). Resistances roughly double that of bulk silver due to porosity. Bending endurance is limited to <span class="text-highlight">&lt; 10,000 cycles</span> for flexible applications.</p>
+                <p style="color:#cbd5e1; font-size:0.95rem;">
+                    📊 <strong>Specific Data:</strong> Finest reported conductive lines: <span class="text-highlight">10 µm</span> (Cai et al.). 
+                    Bending endurance is limited to <span class="text-highlight">&lt; 10,000 cycles</span> for flexible substrates. 
+                    Photopolymer optical waveguides achieved attenuation of <span class="text-highlight">0.7 dB/cm</span> after surface conditioning.
+                </p>
             </div>
 
-            <!-- FIXED VIDEO CARD (Replaces broken iframe) -->
+            <!-- VIDEO CARD -->
             <div class="video-card">
                 <div class="play-icon">🎥</div>
-                <h4 style="color:#e8e8f0;">Watch the AJP Process in Action</h4>
-                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:8px;">Optomec's Aerosol Jet Printing animation showing atomization, focusing, and deposition.</p>
+                <h4 style="color:#e8e8f0;">AJP Process Animation</h4>
+                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:8px;">Optomec's Aerosol Jet Printing animation demonstrating atomization, focusing via sheath gas, and deposition.</p>
                 <a href="https://www.youtube.com/watch?v=bn6D2xGOfUk" target="_blank" class="btn">▶ Watch on YouTube</a>
-                <p style="color:#64748b; font-size:0.7rem; margin-top:8px;">(Opens in new tab – if this video is blocked in your country, just change the URL in the code!)</p>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    SECTION 3: PAPER 2 (AM3D NANOCOMPOSITES)
+    SECTION 3: PAPER 2 (AM3D) - ACADEMIC DETAILS ADDED
     ============================================================ -->
     <section>
         <div class="container">
             <span class="badge" style="color:#a78bfa; border-color:rgba(167,139,250,0.3); background:rgba(167,139,250,0.1);">Paper 2 · Innovation</span>
             <h2>Solving the 60-Year Dispersion Problem</h2>
-            <p style="font-size:1.1rem; color:#c4c4d0;"><strong>Hwang et al. (2024)</strong> · <em>Highly dispersed nanomaterials in polymer matrix via AM3D printing</em></p>
+            <p style="font-size:1.1rem; color:#c4c4d0;"><strong>Hwang et al. (2024)</strong> · <em>Nano Energy</em></p>
 
             <details>
                 <summary>📄 Read the Abstract</summary>
-                <p><em>"Polymer-based nanocomposites emerged in the 1960s... however, over the past six decades, the challenges of achieving uniform nanomaterial dispersion and the resulting non-uniform properties have impeded further progress. Here, we present a polymer-based nanocomposite with highly dispersed nanomaterials, achieved through aerosol-jet-based multi-material three-dimensional (AM3D) printing. This method allows precise programming of the nanocomposite's composition, structure, and dispersity. Numerical simulations facilitate the avoidance of interfacial compatibility issues... As a result, the 3D structured nanocomposite exhibits a uniform dielectric constant and low dielectric loss across the entire printed area."</em></p>
+                <p><em>"Polymer-based nanocomposites emerged in the 1960s... however, the challenges of achieving uniform nanomaterial dispersion have impeded further progress. Here, we present a polymer-based nanocomposite with highly dispersed nanomaterials, achieved through aerosol-jet-based multi-material three-dimensional (AM3D) printing. Numerical simulations (Euler-Lagrangian) facilitate the avoidance of interfacial compatibility issues... As a result, the 3D structured nanocomposite exhibits a uniform dielectric constant and low dielectric loss across the entire printed area."</em></p>
             </details>
 
-            <!-- ANIMATION: Good vs Bad Dispersion -->
+            <!-- ANIMATION -->
             <div class="dispersion-container">
                 <div class="dispersion-box">
                     <h4>❌ Pre-Mixing (Agglomeration)</h4>
@@ -674,86 +631,88 @@
                         <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
                         <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
                     </div>
-                    <p style="color:#94a3b8; font-size:0.8rem; margin-top:10px;">Perfect dispersion. Uniform mechanical & electrical properties.</p>
+                    <p style="color:#94a3b8; font-size:0.8rem; margin-top:10px;">Isotropic printing. Perfect dispersion & uniform properties.</p>
                 </div>
             </div>
-            <p style="text-align:center; font-size:0.8rem; color:#64748b;">Animation: Pre-mixing causes agglomeration (pink clusters) vs. AM3D provides perfect dispersion (blue dots).</p>
 
             <div class="grid-2">
                 <div class="card">
-                    <div class="tag">💡 Core Idea</div>
+                    <div class="tag">💡 Core Strategy</div>
                     <h4>Graffiti Art Inspiration</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">Just as graffiti artists spray different colors separately onto a wall, AM3D atomizes <strong>polymer solution</strong> and <strong>nanomaterial suspension</strong> independently. They combine only at the printhead → <span class="text-highlight">zero pre-mixing agglomeration</span>.</p>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Atomizes <strong>PI/PVDF-TrFE polymer</strong> and <strong>Ag nanoparticles</strong> separately (Pneumatic + Ultrasonic). They combine only at the 114° junction printhead. <span class="text-highlight">No pre-mixing</span> = zero agglomeration.</p>
                 </div>
                 <div class="card">
                     <div class="tag">🔬 Key Results</div>
-                    <h4>16x Dielectric Enhancement</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">SEM shows <span class="text-highlight">no agglomeration</span>. Dielectric constant (ε′) is highly uniform across the film. Multi-layer structures achieved <span class="text-highlight">16x higher</span> ε′ with low loss tangent. Demonstrated in TENG devices for energy harvesting.</p>
+                    <h4>16× Dielectric Enhancement</h4>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Single-layer ε′ = <span class="text-highlight">28</span> vs 14 (pure PVDF-TrFE) at 1 kHz. Multi-layer sandwich structure yields <span class="text-highlight">16×</span> improvement with low loss tangent (0.02). TENG Voc increased from 80V to <span class="text-highlight">~90V</span>.</p>
                 </div>
             </div>
 
-            <!-- Data Point -->
+            <!-- Specific Data Points -->
             <div style="background:rgba(167,139,250,0.05); padding:16px 24px; border-radius:12px; border-left:3px solid #a78bfa; margin-top:10px;">
-                <p style="color:#cbd5e1;">📊 <strong>Key Data:</strong> Single-layer ε′ = 28 (vs 14 for pure PVDF-TrFE). Multi-layer sandwiched structure achieved <span class="text-highlight">16x</span> improvement. Open-circuit voltage (Voc) in TENG increased from 80V to <span class="text-highlight">~90V</span>.</p>
+                <p style="color:#cbd5e1; font-size:0.95rem;">
+                    📊 <strong>Process Parameters:</strong> Low UA flow rates (5–25 sccm) yield isotropic mixing. 
+                    <span class="text-highlight">~200 nm</span> thickness per layer. 
+                    Numerical simulation (Euler-Lagrangian) identified 114° junction angle as optimal to minimize stagnation zones and anisotropic clustering.
+                </p>
             </div>
 
-            <!-- FIXED VIDEO CARD (Replaces broken iframe) -->
             <div class="video-card">
                 <div class="play-icon">🧪</div>
-                <h4 style="color:#e8e8f0;">Nanoparticle Dispersion & Polymer Composites</h4>
-                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:8px;">Visual explanation of why nanoparticle dispersion matters in polymers.</p>
-                <a href="https://www.youtube.com/results?search_query=nanoparticle+dispersion+in+polymers" target="_blank" class="btn btn-alt">🔍 Search for Explainer Videos</a>
-                <p style="color:#64748b; font-size:0.7rem; margin-top:8px;">(Opens YouTube search results in a new tab)</p>
+                <h4 style="color:#e8e8f0;">Nanoparticle Dispersion in Polymers</h4>
+                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:8px;">Why uniform dispersion is critical for dielectric and mechanical properties.</p>
+                <a href="https://www.youtube.com/results?search_query=nanoparticle+dispersion+in+polymers+dielectric" target="_blank" class="btn btn-alt">🔍 Search on YouTube</a>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    SECTION 4: PAPER 3 (3D NANOPRINTING)
+    SECTION 4: PAPER 3 (3D NANOPRINTING) - ACADEMIC DETAILS ADDED
     ============================================================ -->
     <section>
         <div class="container">
             <span class="badge" style="color:#f472b6; border-color:rgba(244,114,182,0.3); background:rgba(244,114,182,0.1);">Paper 3 · Breakthrough</span>
             <h2>Electric Field Guided 3D Nanoprinting</h2>
-            <p style="font-size:1.1rem; color:#c4c4d0;"><strong>Jung et al. (2019)</strong> · <em>Three-dimensional nanoprinting via charged aerosol focusing</em></p>
+            <p style="font-size:1.1rem; color:#c4c4d0;"><strong>Jung et al. (2019)</strong> · <em>Science (submitted/preprint style)</em></p>
 
             <details>
                 <summary>📄 Read the Abstract</summary>
-                <p><em>"Three-dimensional (3D) printing has attracted great attention... ensuring nanoscale resolution with high degree of freedom... Herein, we propose a novel 3D nano-printing concept... We apply a floating dielectric mask concept combined with 3D translation of piezoelectric nanostage to focus charged aerosols through convergent electrostatic field through apertures in the floating mask... Interestingly, we found two different regimes (3D growth mode and 3D writing mode) exist depending on the translation velocity of the stage."</em></p>
+                <p><em>"We propose a novel 3D nano-printing concept... We apply a floating dielectric mask concept combined with 3D translation of piezoelectric nanostage to focus charged aerosols through convergent electrostatic field through apertures in the floating mask... Interestingly, we found two different regimes (3D growth mode and 3D writing mode) exist depending on the translation velocity of the stage."</em></p>
             </details>
 
-            <!-- ANIMATION: Electric Field Focusing -->
+            <!-- ANIMATION -->
             <div class="efield-container">
-                <div class="efield-mask">
-                    <div class="hole"></div>
-                </div>
+                <div class="efield-mask"><div class="hole"></div></div>
                 <div class="efield-particles">
-                    <div class="efield-particle"></div>
-                    <div class="efield-particle"></div>
-                    <div class="efield-particle"></div>
-                    <div class="efield-particle"></div>
+                    <div class="efield-particle"></div><div class="efield-particle"></div>
+                    <div class="efield-particle"></div><div class="efield-particle"></div>
                     <div class="efield-particle"></div>
                 </div>
                 <div class="efield-pillar"></div>
-                <p style="position:absolute; bottom:8px; right:16px; color:#64748b; font-size:0.7rem; z-index:5;">Animation: Charged particles focus through the mask hole onto the growing pillar tip.</p>
+                <p style="position:absolute; bottom:8px; right:16px; color:#64748b; font-size:0.7rem; z-index:5;">Animation: Particles focus through the 4 µm mask hole onto the growing tip.</p>
             </div>
 
             <div class="grid-2">
                 <div class="card">
-                    <div class="tag">⚡ Core Principle</div>
+                    <div class="tag">⚡ Mechanism</div>
                     <h4>Electrostatic Focusing Lens</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">Positive ions accumulate on the floating mask, creating a <span class="text-highlight">"cushion"</span> of charge. This distorts the electric field, forming narrow funnels above the holes that guide charged nanoparticles onto the substrate.</p>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Positive ions accumulate on the <span class="text-highlight">SiNₓ floating mask</span> (4 µm holes). This distorts the electric field, creating narrow funnels that guide charged Pd/Cu nanoparticles (<span class="text-highlight">~50 nm</span> size) onto the substrate.</p>
                 </div>
                 <div class="card">
                     <div class="tag">🌀 Two Modes</div>
                     <h4>Growth vs. Writing</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;"><strong>Growth Mode</strong> (slow stage): Nanoparticles accumulate at the tip, building 3D structures (pillars, helices). <strong>Writing Mode</strong> (fast stage): Particles deposit directly on the substrate, acting like a "brush".</p>
+                    <p style="color:#94a3b8; font-size:0.9rem;"><strong>Growth:</strong> Slow stage (< 50 µm/h) → tip accumulation (pillars, helices). <strong>Writing:</strong> Fast stage (25 nm/s) → particles deposit directly as a "brush" (letters "3D").</p>
                 </div>
             </div>
 
             <!-- Theory Highlight -->
             <div style="background:rgba(244,114,182,0.05); padding:16px 24px; border-radius:12px; border-left:3px solid #f472b6; margin:16px 0;">
-                <p style="color:#cbd5e1;">📐 <strong>Theoretical Innovation:</strong> Introduces the <span class="text-highlight">"Persistence Length" (Lp)</span> to describe how the electric field line acts as a flexible drawing tool. <em>"R = Lp * sin(θ/2)"</em>. With Lp ≈ 1 µm, they predicted and built downward-growing structures and helices with <span class="text-highlight">&lt; 100 nm</span> resolution.</p>
+                <p style="color:#cbd5e1; font-size:0.95rem;">
+                    📐 <strong>Theoretical Innovation:</strong> Introduced <span class="text-highlight">"Persistence Length" (Lp ≈ 1.12 µm)</span>. 
+                    Equation: <em>R = Lp · sin(θ/2)</em>. 
+                    This allowed prediction of downward-growing structures and steady-state helices. 
+                    Helix radius = 1 µm, pitch angle ≈ 41° with rotation speed <em>ω ≈ 4π h⁻¹</em>.
+                </p>
             </div>
 
             <!-- Achievements -->
@@ -761,39 +720,37 @@
                 <div class="card">
                     <div class="tag">🏗️ 3D Structures</div>
                     <h4>Helices & Zig-zags</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">Fabricated uniform helices with 1 µm radius, pitch angle ~45°, and complex zig-zag and stair structures by programming the stage movement.</p>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Fabricated uniform helices (Rₛ = 1 µm), complex zig-zag (1 µm jumps, 4 min dwells), and stair structures via programmed stage motion.</p>
                 </div>
                 <div class="card">
                     <div class="tag">✍️ Writing Mode</div>
                     <h4>Letters "3D"</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">Demonstrated writing of letters "3" and "D" using different materials (Pd and Cu), confirmed by EDS mapping.</p>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Multi-material writing of "3" (Pd) and "D" (Cu) confirmed by EDS mapping. Demonstrates <span class="text-highlight">in-situ material switching</span>.</p>
                 </div>
                 <div class="card">
                     <div class="tag">📏 Resolution</div>
                     <h4>&lt; 100 nm</h4>
-                    <p style="color:#94a3b8; font-size:0.9rem;">True nanoscale 3D printing. Outperforms conventional AJP (10 µm) by two orders of magnitude.</p>
+                    <p style="color:#94a3b8; font-size:0.9rem;">True nanoscale 3D printing. Outperforms conventional AJP (10 µm) by two orders of magnitude. Growth velocity ≈ <span class="text-highlight">15.5 µm/h</span> for helices.</p>
                 </div>
             </div>
 
-            <!-- FIXED VIDEO CARD (Replaces broken iframe) -->
             <div class="video-card">
                 <div class="play-icon">⚡</div>
-                <h4 style="color:#e8e8f0;">Electric Field Focusing & Nanoparticle Assembly</h4>
-                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:8px;">Demonstration of ion-assisted aerosol lithography and 3D structure growth.</p>
-                <a href="https://www.youtube.com/results?search_query=ion+assisted+aerosol+lithography+3d+nanoprinting" target="_blank" class="btn btn-pink">🔍 Search for Related Videos</a>
-                <p style="color:#64748b; font-size:0.7rem; margin-top:8px;">(Opens YouTube search results in a new tab)</p>
+                <h4 style="color:#e8e8f0;">Ion-Assisted Aerosol Lithography</h4>
+                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:8px;">Demonstration of electric field focusing and 3D nanoparticle assembly.</p>
+                <a href="https://www.youtube.com/results?search_query=Ion+Assisted+Aerosol+Lithography+3D" target="_blank" class="btn btn-pink">🔍 Search on YouTube</a>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    SECTION 5: GAP ANALYSIS
+    SECTION 5: GAP ANALYSIS - EXPANDED WITH NUMERICAL GAPS
     ============================================================ -->
     <section>
         <div class="container">
             <span class="badge" style="color:#fbbf24; border-color:rgba(251,191,36,0.3); background:rgba(251,191,36,0.1);">GAP Analysis</span>
             <h2>Where Do They Connect?</h2>
-            <p style="color:#94a3b8; margin-bottom:24px;">Each paper solves a specific piece of the puzzle. Here is the comparative evolution.</p>
+            <p style="color:#94a3b8; margin-bottom:24px;">Each paper solves a specific piece of the manufacturing puzzle. Here is the quantitative comparison.</p>
 
             <table class="comparison-table">
                 <thead>
@@ -807,42 +764,47 @@
                 <tbody>
                     <tr>
                         <td><strong>Core Focus</strong></td>
-                        <td>Summarizing the field</td>
-                        <td>Solving dispersion</td>
-                        <td>True 3D Nano-structures</td>
+                        <td>Summarize AJP fundamentals</td>
+                        <td>Eliminate nanomaterial agglomeration</td>
+                        <td>Achieve true 3D nano-architectures</td>
                     </tr>
                     <tr>
                         <td><strong>Resolution</strong></td>
-                        <td>~10 µm</td>
-                        <td>~µm-scale</td>
+                        <td>~10 µm (best reported)</td>
+                        <td>~µm-scale (line width)</td>
                         <td class="highlight-cell">&lt; 100 nm</td>
                     </tr>
                     <tr>
                         <td><strong>Dimension</strong></td>
                         <td>2D / 2.5D</td>
                         <td>2D films + Stacked 3D</td>
-                        <td class="highlight-cell">True 3D (Helices/Overhangs)</td>
+                        <td class="highlight-cell">True 3D (Helices, overhangs)</td>
                     </tr>
                     <tr>
                         <td><strong>Materials</strong></td>
-                        <td>Single-material inks</td>
-                        <td class="highlight-cell">Polymer + Nanoparticle composites</td>
-                        <td>Metal nanoparticles (Pd, Cu)</td>
+                        <td>Single-material inks (Ag, Ceramics)</td>
+                        <td class="highlight-cell">Polymer + Ag NP composites</td>
+                        <td>Single metals (Pd, Cu)</td>
                     </tr>
                     <tr>
                         <td><strong>Driving Force</strong></td>
                         <td>Gas flow (Pneumatic/Ultrasonic)</td>
-                        <td>Dual-gas flow</td>
+                        <td>Dual-atomization gas flow</td>
                         <td class="highlight-cell">Electrostatic focusing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Bottleneck</strong></td>
+                        <td>Ink formulation & overspray</td>
+                        <td>Resolution limited to µm</td>
+                        <td>Single-material only, slow speed</td>
                     </tr>
                 </tbody>
             </table>
 
-            <!-- The GAP Arrows -->
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 24px;">
                 <div style="background:rgba(96,165,250,0.06); padding:20px; border-radius:12px; text-align:center; border:1px solid rgba(96,165,250,0.1);">
                     <div style="font-size:1.2rem; color:#60a5fa; font-weight:700;">P1 → P2</div>
-                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:6px;">"Ink formulation is hard" → "Let's not pre-mix at all"</p>
+                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:6px;">"Ink formulation is empirical" → "Eliminate pre-mixing entirely"</p>
                 </div>
                 <div style="background:rgba(167,139,250,0.06); padding:20px; border-radius:12px; text-align:center; border:1px solid rgba(167,139,250,0.1);">
                     <div style="font-size:1.2rem; color:#a78bfa; font-weight:700;">P2 → P3</div>
@@ -853,7 +815,16 @@
                     <p style="font-size:0.85rem; color:#94a3b8; margin-top:6px;">"Physical nozzle limits" → "Electric field replaces nozzle"</p>
                 </div>
             </div>
-            <p style="text-align:center; color:#64748b; font-size:0.9rem; margin-top:16px;"><strong>The Missing Link:</strong> P3 has nanoscale resolution but is single-material. P2 has multi-material but is microscale.</p>
+
+            <!-- CRITICAL MISSING LINK -->
+            <div style="background:rgba(251,191,36,0.05); padding:20px 24px; border-radius:12px; border:2px solid rgba(251,191,36,0.2); margin-top:20px;">
+                <p style="color:#fbbf24; font-weight:700; font-size:1rem;">🔗 The Missing Link (Critical GAP)</p>
+                <p style="color:#cbd5e1; font-size:0.95rem;">
+                    <strong>Paper 3</strong> achieves nanoscale resolution (< 100 nm) and true 3D geometries, but is <span class="text-highlight">limited to single metals</span> (Pd, Cu). <br>
+                    <strong>Paper 2</strong> demonstrates excellent multi-material capability (polymer + Ag NPs) with perfect dispersion, but is <span class="text-highlight">stuck at the microscale</span> (~µm line widths). <br>
+                    <strong>Paper 1</strong> highlights that conventional AJP lacks both nano-resolution and simple multi-material mixing.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -875,17 +846,17 @@
                 <div style="background:rgba(255,255,255,0.02); padding:24px; border-radius:12px;">
                     <h4 style="color:#60a5fa;">🎯 Why This Question</h4>
                     <ul style="color:#94a3b8; list-style:none; padding:0; font-size:0.95rem;">
-                        <li style="padding:6px 0;">✓ <strong>P3</strong> proves we can print <span class="text-highlight">sub-100 nm 3D</span> structures, but only with single metals.</li>
-                        <li style="padding:6px 0;">✓ <strong>P2</strong> proves we can perfectly mix <span class="text-highlight">polymers + nanoparticles</span>, but only at the micro-scale.</li>
-                        <li style="padding:6px 0;">✓ Merging them creates <span class="text-highlight">"Multi-material 3D Nano-printing"</span> – a new manufacturing paradigm.</li>
+                        <li style="padding:6px 0;">✓ <strong>P3</strong> proves sub-100 nm 3D structures, but <span class="text-highlight">single-metal only</span>.</li>
+                        <li style="padding:6px 0;">✓ <strong>P2</strong> proves perfect polymer/NP mixing, but <span class="text-highlight">micro-scale only</span>.</li>
+                        <li style="padding:6px 0;">✓ Combining them enables <span class="text-highlight">"Multi-material 3D Nano-printing"</span> – a new paradigm.</li>
                     </ul>
                 </div>
                 <div style="background:rgba(255,255,255,0.02); padding:24px; border-radius:12px;">
                     <h4 style="color:#a78bfa;">🔬 Potential Impact</h4>
                     <ul style="color:#94a3b8; list-style:none; padding:0; font-size:0.95rem;">
-                        <li style="padding:6px 0;">✓ <strong>3D Nano-electronics:</strong> Build complex, multi-material interconnects at the nanoscale.</li>
-                        <li style="padding:6px 0;">✓ <strong>Heterogeneous Sensors:</strong> Integrate different functional materials (e.g., dielectric + conductor) in one 3D nano-architecture.</li>
-                        <li style="padding:6px 0;">✓ <strong>Meta-materials:</strong> Design 3D nano-structures with custom optical/mechanical properties impossible with single materials.</li>
+                        <li style="padding:6px 0;">✓ <strong>3D Nano-electronics:</strong> Multi-material interconnects at the nanoscale.</li>
+                        <li style="padding:6px 0;">✓ <strong>Heterogeneous Sensors:</strong> Dielectric + conductor in one 3D nano-architecture.</li>
+                        <li style="padding:6px 0;">✓ <strong>Meta-materials:</strong> Custom optical/mechanical properties with multiple materials.</li>
                     </ul>
                 </div>
             </div>
@@ -918,7 +889,6 @@
                 </div>
             </div>
             <p style="color:#94a3b8; max-width:700px; margin:0 auto; font-size:1.1rem;">
-                These three papers map the complete journey: <br>
                 <span class="text-highlight">"How to do it"</span> (P1) → <span class="text-highlight">"How to do it better"</span> (P2) → <span class="text-highlight">"How to do it smaller"</span> (P3).
             </p>
             <div style="margin-top:40px; padding:20px; border-top:1px solid rgba(255,255,255,0.06);">
@@ -929,7 +899,6 @@
     </section>
 
     <script>
-        // Progress Bar
         window.addEventListener('scroll', function() {
             let scrollTop = window.scrollY;
             let docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -937,6 +906,5 @@
             document.getElementById('progressBar').style.width = progress + '%';
         });
     </script>
-
 </body>
 </html>
